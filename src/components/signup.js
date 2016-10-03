@@ -6,7 +6,7 @@ import * as actions from '../actions';
 class Signup extends Component {
 
   handleFormSubmit(formProps) {
-    this.props.signupUser(formProps)
+    console.log(formProps);
   }
 
   render() {
@@ -14,7 +14,7 @@ class Signup extends Component {
     return (
       <div>
         <h1>Sign up</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
          <fieldset className="form-group">
            <label htmlFor="email">Email:</label>
            <Field name="email" component="input" className="form-control" />
@@ -34,11 +34,9 @@ class Signup extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return state;
-}
+
 
 export default Signup = reduxForm({
   form: 'contact',
   fields: ['email', 'password', 'passwordConfirm']
-}, mapStateToProps, actions)(Signup);
+})(Signup);
