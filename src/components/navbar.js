@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+class NavBar extends Component {
 
-const NavBar = () => {
+  render() {
   return (
     <nav className="navbar navbar-light bg-faded">
       <a className="navbar-brand" href="#">Pixsy</a>
@@ -15,7 +16,8 @@ const NavBar = () => {
        </li>
      </ul>
     </nav>
-
   );
+  }
 }
+
 export default NavBar;

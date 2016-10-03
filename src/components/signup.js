@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class Signup extends Component {
 
+  handleFormSubmit(formProps) {
+    this.props.signupUser(formProps)
+  }
+
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, fields: { email, password, confirmPassword }} = this.props;
     return (
       <div>
         <h1>Sign up</h1>
@@ -28,6 +34,11 @@ class Signup extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return state;
+}
+
 export default Signup = reduxForm({
-  form: 'contact'
-})(Signup);
+  form: 'contact',
+  fields: ['email', 'password', 'passwordConfirm']
+}, mapStateToProps, actions)(Signup);

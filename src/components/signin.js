@@ -4,11 +4,11 @@ import { Field, reduxForm } from 'redux-form';
 class Signin extends Component {
 
   render() {
-    const { handleSubmit } = this.props;
+
     return (
       <div>
         <h1>Sign in</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
          <fieldset className="form-group">
            <label htmlFor="email">Email:</label>
            <Field name="email" component="input" className="form-control" />
@@ -24,6 +24,8 @@ class Signin extends Component {
   }
 }
 
-export default Signin = reduxForm({
-  form: 'contact' 
-})(Signin);
+// const mapStateToProps = (state) => {
+//   return state;
+// }
+
+export default Signin;
