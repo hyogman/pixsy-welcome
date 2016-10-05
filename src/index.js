@@ -9,14 +9,27 @@ import App from './components/app';
 import Signup from './components/signup';
 import Signin from './components/signin';
 import reducers from './reducers';
-import mySaga from './sagas/saga';
+import { helloSaga } from './sagas';
+//
+// const sagaMiddleware = createSagaMiddleware();
+// const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
+//
+// sagaMiddleware.run(mySaga);
 
-const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
 
-sagaMiddleware.run(mySaga);
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware()
+// mount it on the Store
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware)
+)
+
+// then run the saga
+sagaMiddleware.run(helloSaga);
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={store}>
     <Router history={browserHistory} >
       <Route path="/" component={App}/>
       <Route path="/signin" component={Signin} />
