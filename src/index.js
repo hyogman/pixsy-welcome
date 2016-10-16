@@ -1,21 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory } from 'react-router'
-import createSagaMiddleware from 'redux-saga';
+import createSagaMiddleware from 'redux-saga'
 
-import App from './components/app';
-import Signup from './components/signup';
-import Signin from './components/signin';
-import reducers from './reducers';
-import rootSaga from './sagas';
-//
-// const sagaMiddleware = createSagaMiddleware();
-// const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
-//
-// sagaMiddleware.run(mySaga);
-
+import App from './components/app'
+import Signup from './components/signup'
+import Signin from './components/signin'
+import reducers from './reducers'
+import rootSaga from './sagas'
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware()
@@ -26,7 +20,7 @@ const store = createStore(
 )
 
 // then run the saga
-sagaMiddleware.run(rootSaga);
+sagaMiddleware.run(rootSaga)
 
 ReactDOM.render(
   <Provider store={store}>
@@ -37,4 +31,4 @@ ReactDOM.render(
       </Route>
     </Router>
     </Provider>
-  , document.querySelector('.container'));
+  , document.querySelector('.container'))

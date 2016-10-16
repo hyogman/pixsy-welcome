@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { signupUser } from '../actions';
+import React, { Component } from 'react'
+import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+import { signupUser } from '../actions'
 
 class Signup extends Component {
 
   handleFormSubmit(data) {
-    console.log(data);
-    this.props.signupUser(data);
+    this.props.signupUser(data)
   }
 
   render() {
-    const { handleSubmit, fields: { email, password, confirmPassword }} = this.props;
+    const { handleSubmit, fields: { email, password, confirmPassword }} = this.props
     return (
       <div>
         <h1>Sign up</h1>
@@ -31,7 +30,7 @@ class Signup extends Component {
          <button action="submit" className="btn btn-primary">Sign up</button>
        </form>
      </div>
-    );
+    )
   }
 }
 
