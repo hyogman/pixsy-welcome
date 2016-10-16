@@ -9,7 +9,7 @@ import App from './components/app';
 import Signup from './components/signup';
 import Signin from './components/signin';
 import reducers from './reducers';
-import { helloSaga } from './sagas';
+import rootSaga from './sagas';
 //
 // const sagaMiddleware = createSagaMiddleware();
 // const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
@@ -26,14 +26,15 @@ const store = createStore(
 )
 
 // then run the saga
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} >
-      <Route path="/" component={App}/>
+      <Route path="/" component={App}>
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
+      </Route>
     </Router>
     </Provider>
   , document.querySelector('.container'));

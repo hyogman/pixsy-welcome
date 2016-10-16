@@ -1,7 +1,11 @@
-const AUTH_USER = 'AUTH_USER';
+import { SIGN_IN_USER_REQUEST } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
-export const signinUser = ({email, password}) => {
-  dispatch({ type: AUTH_USER });
+export const signinUser = (data) => {
+  console.log("in action: ", data);
+  return {
+    type: SIGN_IN_USER_REQUEST,
+    payload: data
+  };
 }
