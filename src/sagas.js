@@ -6,23 +6,22 @@ import axios from 'axios'
 
 const ROOT_URL = 'http://localhost:3090'
 
-const signup = ({ email, password }) => {
+const signupAPI = ({ email, password }) => {
   return axios.post(ROOT_URL + "/signup", {email, password})
     .then(response => {
       localStorage.setItem('token', response.data.token)
       browserHistory.push('/')
     })
-    .catch(response => console.log("axios err: ", response))
+    .catch(response => console.log("*Account already created: ", response))
 }
 
 function* signupUser() {
   const { payload } = yield take(SIGN_UP_USER_REQUEST)
-  console.log(payload)
   try {
-    yield call(signup, payload)
-    yield put({ type: 'SIGN_IN_USER_SUCCESS' })
+    yield call(signupAPI, payload)
+    yield put({ type: 'SIGN_UP_USER_SUCCESS' })
   } catch (err) {
-    console.log("gen err: ", err)
+    console.log("Account already created: ", err)
   }
 }
 
