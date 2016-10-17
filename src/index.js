@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory } from 'react-router'
 import createSagaMiddleware from 'redux-saga'
+import { AUTH_USER_SUCCESS } from './actions/index'
 
 import App from './components/app'
 import Signup from './components/signup'
@@ -21,6 +22,13 @@ const store = createStore(
 
 // then run the saga
 sagaMiddleware.run(rootSaga)
+
+const token = localStorage.getItem('token');
+// if we have token consider user to be signed in
+if (token) {
+  // update app state
+  store.dispatch({ type: AUTH_USER_SUCCESS} );
+}
 
 ReactDOM.render(
   <Provider store={store}>

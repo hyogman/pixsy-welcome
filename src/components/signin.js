@@ -6,13 +6,11 @@ import { connect } from 'react-redux'
 class Signin extends Component {
 
   handleFormSubmit(data){
-    console.log("in handle submit", data)
     this.props.signinUser(data)
   }
 
   render() {
     const { handleSubmit, fields: { email, password }} = this.props;
-
     return (
       <div>
         <h1>Sign in</h1>
