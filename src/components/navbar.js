@@ -10,10 +10,11 @@ logout() {
 }
 
 renderLinks() {
+
   if (this.props.isAuthenticated) {
     return (
       <li className="nav-item">
-        <Link onClick={this.logout()} className="nav-link" to="/">Logout</Link>
+        <Link onClick={this.logout.bind(this)} className="nav-link" to="/">Logout</Link>
       </li>
     )
   } else {

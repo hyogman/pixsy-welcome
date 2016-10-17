@@ -4,4 +4,4 @@ export const SIGN_UP_USER_REQUEST = 'SIGN_UP_USER_REQUEST'
 
 export const AUTH_USER_SUCCESS = 'AUTH_USER_SUCCESS'
 
-export const UN_AUTH_USER = 'UN_AUTH_USER'
+export const UNAUTH_USER = 'UNAUTH_USER'
