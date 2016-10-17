@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 
 class NavBar extends Component {
 
-  render() {
+
+render() {
   return (
     <nav className="navbar navbar-light bg-faded">
       <a className="navbar-brand" href="#">Pixsy</a>
@@ -13,6 +14,9 @@ class NavBar extends Component {
        </li>
        <li className="nav-item">
          <Link className="nav-link" to="/signup">Signup</Link>
+       </li>
+       <li className="nav-item">
+         <Link className="nav-link" to="/">Logout</Link>
        </li>
      </ul>
     </nav>
