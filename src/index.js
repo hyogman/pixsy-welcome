@@ -5,10 +5,13 @@ import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory } from 'react-router'
 import createSagaMiddleware from 'redux-saga'
 import { AUTH_USER_SUCCESS } from './actions/types'
+import RequireAuth from './components/require_auth'
 
 import App from './components/app'
 import Signup from './components/signup'
 import Signin from './components/signin'
+import Imports from './components/imports'
+
 import reducers from './reducers'
 import rootSaga from './sagas'
 
@@ -23,8 +26,6 @@ const store = createStore(
 // then run the saga
 sagaMiddleware.run(rootSaga)
 
-debugger
-
 const token = localStorage.getItem('token');
 // if we have token consider user to be signed in
 if (token) {
@@ -38,6 +39,7 @@ ReactDOM.render(
       <Route path="/" component={App}>
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
+      <Route path="/imports" component={RequireAuth(Imports)} />
       </Route>
     </Router>
     </Provider>
