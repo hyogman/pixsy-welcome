@@ -12,7 +12,7 @@ const signupAPI = ({ email, password }) => {
       localStorage.setItem('token', response.data.token)
       browserHistory.push('/')
     })
-    .catch(response => console.log("*Account already created: ", response))
+    // .catch(response => console.log("*Account already created: ", response))
 }
 
 function* signupUser() {
