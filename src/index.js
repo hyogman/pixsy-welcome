@@ -2,15 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import createSagaMiddleware from 'redux-saga'
-import { AUTH_USER_SUCCESS } from './actions/types'
-import RequireAuth from './components/require_auth'
 
 import App from './components/app'
 import Signup from './components/signup'
 import Signin from './components/signin'
 import Imports from './components/imports'
+import Landing from './components/landing'
+import RequireAuth from './components/require_auth'
+
+import { AUTH_USER_SUCCESS } from './actions/types'
 
 import reducers from './reducers'
 import rootSaga from './sagas'
@@ -37,9 +39,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory} >
       <Route path="/" component={App}>
-      <Route path="/signin" component={Signin} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/imports" component={RequireAuth(Imports)} />
+        <IndexRoute component={Landing} />
+        <Route path="/signin" component={Signin} />
+        <Route path="/signup" component={Signup} />
+        <Route path="/imports" component={RequireAuth(Imports)} />
       </Route>
     </Router>
     </Provider>
