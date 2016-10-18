@@ -24,7 +24,6 @@ const store = createStore(
   reducers,
   applyMiddleware(sagaMiddleware)
 )
-
 // then run the saga
 sagaMiddleware.run(rootSaga)
 
@@ -34,6 +33,7 @@ if (token) {
   // update app state
   store.dispatch({ type: AUTH_USER_SUCCESS });
 }
+
 
 ReactDOM.render(
   <Provider store={store}>

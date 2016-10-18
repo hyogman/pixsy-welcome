@@ -10,7 +10,6 @@ logout() {
 }
 
 renderLinks() {
-
   if (this.props.isAuthenticated) {
     return [
       <li className="nav-item" key={1}>

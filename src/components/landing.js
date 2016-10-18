@@ -4,7 +4,7 @@ const Landing = () => {
   return (
     <div className="jumbotron">
       <h1>Welcome</h1>
-      <p>Please login or signup to import photos!</p>
+      <p>Login or signup to import photos!</p>
     </div>
   )
 }
