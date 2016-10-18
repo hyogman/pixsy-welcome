@@ -12,11 +12,14 @@ logout() {
 renderLinks() {
 
   if (this.props.isAuthenticated) {
-    return (
-      <li className="nav-item">
+    return [
+      <li className="nav-item" key={1}>
+        <Link className="nav-link" to="/imports">Imports</Link>
+      </li>,
+      <li className="nav-item" key={2}>
         <Link onClick={this.logout.bind(this)} className="nav-link" to="/">Logout</Link>
       </li>
-    )
+    ]
   } else {
     return [
       <li className="nav-item" key={1}>

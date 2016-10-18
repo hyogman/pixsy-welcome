@@ -1,5 +1,5 @@
 import { takeEvery } from 'redux-saga'
-import { call, put, fork, take } from 'redux-saga/effects'
+import { call, put, take } from 'redux-saga/effects'
 import { SIGN_UP_USER_REQUEST, SIGN_IN_USER_REQUEST, AUTH_USER_SUCCESS } from './actions/types'
 import { signupAPI, signinAPI } from './api'
 import { browserHistory } from 'react-router'
