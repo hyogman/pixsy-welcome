@@ -6,7 +6,7 @@ import { logoutUser } from '../actions/index'
 class NavBar extends Component {
 
 logout() {
-  this.props.logoutUser();
+  this.props.logoutUser()
 }
 
 renderLinks() {

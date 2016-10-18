@@ -10,7 +10,7 @@ class Signin extends Component {
   }
 
   render() {
-    const { handleSubmit, fields: { email, password }} = this.props;
+    const { handleSubmit, fields: { email, password }} = this.props
     return (
       <div>
         <h1>Sign in</h1>
@@ -21,7 +21,7 @@ class Signin extends Component {
         </fieldset>
         <fieldset className="form-group">
           <label htmlFor="password">Password:</label>
-          <Field name="password" component="input" className="form-control" />
+          <Field name="password" type="password" component="input" className="form-control" />
         </fieldset>
          <button action="submit" className="btn btn-primary">Sign in</button>
        </form>
